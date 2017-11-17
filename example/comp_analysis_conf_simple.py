@@ -63,24 +63,28 @@ SETUP = {
         }
     },
     'linux': {
-        'Chrome': {
-            'binary': '/usr/bin/google-chrome-unstable',
-            'parent_filter': lambda x: 'chrome --type' not in x,
-            'path_filter': lambda x: 'chrome-unstable' in x
-        },
+        # 'Chrome': {
+        #     'binary': '/usr/bin/google-chrome-unstable',
+        #     'parent_filter': lambda x: 'chrome --type' not in x,
+        #     'path_filter': lambda x: 'chrome-unstable' in x
+        # },
         'Firefox': {
-            'binary': 'firefox/firefox-bin',
-            'parent_filter': lambda x: 'firefox-bin' in x,
-            'path_filter': lambda x: 'atsy-test/firefox' in x
+            'binary': '/home/bpowers/src/gecko-dev/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
+            'parent_filter': lambda x: 'firefox-bin -content' not in x,
+            'path_filter': lambda x: 'obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin' in x
         }
     },
 }
 
 # Example test sites.
 TEST_SITES = [
-    "https://www.google.com/#q=red+panda",
-    "https://yahoo.com",
-    "http://cnn.com",
-    "https://www.youtube.com/watch?v=DSehQsYU9h4",
-    "https://www.linkedin.com/company/mozilla-corporation"
+  "http://localhost.1-atsy.org:8001/tp5/thesartorialist.blogspot.com/thesartorialist.blogspot.com/index.html",
+  "http://localhost.2-atsy.org:8002/tp5/cakewrecks.blogspot.com/cakewrecks.blogspot.com/index.html",
+  "http://localhost.3-atsy.org:8003/tp5/baidu.com/www.baidu.com/s@wd=mozilla.html",
+  "http://localhost.4-atsy.org:8004/tp5/en.wikipedia.org/en.wikipedia.org/wiki/Rorschach_test.html",
+    # "https://www.google.com/#q=red+panda",
+    # "https://yahoo.com",
+    # "http://cnn.com",
+    # "https://www.youtube.com/watch?v=DSehQsYU9h4",
+    # "https://www.linkedin.com/company/mozilla-corporation"
 ]

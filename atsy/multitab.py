@@ -107,6 +107,7 @@ class FirefoxMultiTabTest(BaseMultiTabTest):
         }
 
         e10s = self.process_count > 0
+        print 'FF:: e10s? %s %s' % (e10s, self.process_count)
 
         prefs = {
 
@@ -123,7 +124,7 @@ class FirefoxMultiTabTest(BaseMultiTabTest):
             "browser.tabs.remote.autostart.4": e10s,
             "browser.tabs.remote.autostart.5": e10s,
             "browser.tabs.remote.autostart.6": e10s,
-            "dom.ipc.processCount": self.process_count,
+            "dom.ipc.processCount": 1,
 
             # prevent "You're using e10s!" dialog from showing up
             "browser.displayedE10SNotice": 1000,
@@ -156,6 +157,7 @@ class FirefoxMultiTabTest(BaseMultiTabTest):
             profile=profile,
             logger=logger,
             startup_timeout=60,
+            e10s=False,
             address="localhost:%d" % marionette_port,
             gecko_log="gecko_%d.log" % self.process_count)
 

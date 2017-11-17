@@ -72,9 +72,9 @@ SETUP = {
             'path_filter': lambda x: 'chrome-unstable' in x
         },
         'Firefox': {
-            'binary': '/home/erahm/dev/atsy_test/firefox/firefox-bin',
+            'binary': '/opt/firefox-nightly/firefox-bin',
             'parent_filter': lambda x: 'firefox-bin -content' not in x,
-            'path_filter': lambda x: 'atsy_test/firefox' in x
+            'path_filter': lambda x: 'firefox-nightly/firefox' in x
         }
     },
 }
