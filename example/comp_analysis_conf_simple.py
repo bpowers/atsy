@@ -68,11 +68,16 @@ SETUP = {
         #     'parent_filter': lambda x: 'chrome --type' not in x,
         #     'path_filter': lambda x: 'chrome-unstable' in x
         # },
+        # 'Firefox': {
+        #     'binary': '/home/bpowers/src/gecko-dev/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
+        #     'parent_filter': lambda x: 'firefox-bin -content' not in x,
+        #     'path_filter': lambda x: 'obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin' in x
+        # },
         'Firefox': {
-            'binary': '/home/bpowers/src/gecko-dev/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
+            'binary': '/home/bpowers/src/firefox-57.0-nojemalloc/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
             'parent_filter': lambda x: 'firefox-bin -content' not in x,
             'path_filter': lambda x: 'obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin' in x
-        }
+        },
     },
 }
 
