@@ -74,8 +74,8 @@ SETUP = {
         #     'path_filter': lambda x: 'obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin' in x
         # },
         'Firefox': {
-            # 'binary': '/home/bpowers/src/firefox-57.0-nojemalloc/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
-            'binary': '/home/bpowers/src/firefox-57.0/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
+            'binary': '/home/bpowers/src/firefox-57.0-nojemalloc/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
+            # 'binary': '/home/bpowers/src/firefox-57.0/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
             'parent_filter': lambda x: 'firefox-bin -content' not in x,
             'path_filter': lambda x: 'obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin' in x
         },
@@ -84,10 +84,11 @@ SETUP = {
 
 # Example test sites.
 TEST_SITES = [
-  "http://localhost.1-atsy.org:8001/tp5/thesartorialist.blogspot.com/thesartorialist.blogspot.com/index.html",
-  "http://localhost.2-atsy.org:8002/tp5/cakewrecks.blogspot.com/cakewrecks.blogspot.com/index.html",
-  "http://localhost.3-atsy.org:8003/tp5/baidu.com/www.baidu.com/s@wd=mozilla.html",
-  "http://localhost.4-atsy.org:8004/tp5/en.wikipedia.org/en.wikipedia.org/wiki/Rorschach_test.html",
+  "http://localhost:1337/",
+  # "http://localhost.1-atsy.org:8001/tp5/thesartorialist.blogspot.com/thesartorialist.blogspot.com/index.html",
+  # "http://localhost.2-atsy.org:8002/tp5/cakewrecks.blogspot.com/cakewrecks.blogspot.com/index.html",
+  # "http://localhost.3-atsy.org:8003/tp5/baidu.com/www.baidu.com/s@wd=mozilla.html",
+  # "http://localhost.4-atsy.org:8004/tp5/en.wikipedia.org/en.wikipedia.org/wiki/Rorschach_test.html",
     # "https://www.google.com/#q=red+panda",
     # "https://yahoo.com",
     # "http://cnn.com",

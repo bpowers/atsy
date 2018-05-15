@@ -149,7 +149,7 @@ class FirefoxMultiTabTest(BaseMultiTabTest):
         profile = mozprofile.FirefoxProfile(preferences=prefs)
 
         # TODO(ER): Figure out how to turn on debug level info again
-        #commandline.formatter_option_defaults['level'] = 'debug'
+        # commandline.formatter_option_defaults['level'] = 'debug'
 
         logger = commandline.setup_logging("MarionetteTest", {})
         runner = MarionetteTestRunner(
