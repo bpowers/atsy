@@ -112,7 +112,7 @@ if __name__ == "__main__":
         stats.print_stats()
     elif mozinfo.os == "linux":
         # Test firefox
-        stats = ProcessStats(lambda x: "firefox-trunk" in x,
+        stats = ProcessStats(lambda x: "firefox" in x,
                              lambda x: "plugin-container" not in x)
         stats.print_stats()
     else:

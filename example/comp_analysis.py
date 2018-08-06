@@ -51,6 +51,7 @@ def test_browser(browser, stats, binary, urls,
             options.set_preference('startup.homepage_welcome_url', '')
             options.set_preference('startup.homepage_override_url', '')
             options.set_preference('browser.newtab.url', 'about:blank')
+            options.set_preference('browser.tabs.remote.autostart', False)
 
             # override image expiration in hopes of getting less volatile
             # numbers
