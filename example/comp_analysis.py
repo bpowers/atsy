@@ -45,6 +45,7 @@ def test_browser(browser, stats, binary, urls,
             print "FIREFOX WITH %d CONTENT PROCESSES" % count
 
             options = webdriver.firefox.options.Options()
+            # options.log.level = "trace"
             options.binary = binary
             options.set_preference("dom.ipc.processCount", int(count))
             # Don't open the first-run dialog, it loads a video

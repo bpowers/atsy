@@ -3,6 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -24,7 +25,7 @@ MAX_TABS = 30
 PER_TAB_PAUSE = 10
 
 # Default amount of time to wait after loading all tabs.
-SETTLE_WAIT_TIME = 60
+SETTLE_WAIT_TIME = 10
 
 MODULE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -188,9 +189,19 @@ class MultiTabTest(BaseMultiTabTest):
             else:
                 ctrl_key = Keys.CONTROL
 
-            action.key_down(ctrl_key).key_down(Keys.SHIFT).click(
-                tag).key_up(Keys.SHIFT).key_up(ctrl_key).perform()
+            try:
+                action.key_down(ctrl_key).key_down(Keys.SHIFT).click(
+                    tag).key_up(Keys.SHIFT).key_up(ctrl_key).perform()
+            except WebDriverException:
+                print 'ignoring unknown selenium exception'
+
+            time.sleep(1)
+            self.driver.switch_to_window(self.driver.window_handles[-1])
+
             time.sleep(self.per_tab_pause)
+
+            score_el = self.driver.find_element_by_id('result-number')
+            print('SCORE: {}'.format(score_el.get_attribute('innerHTML')))
 
         time.sleep(self.settle_wait_time)
         self.stats.print_stats()
