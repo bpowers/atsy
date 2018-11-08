@@ -193,7 +193,8 @@ class MultiTabTest(BaseMultiTabTest):
                 action.key_down(ctrl_key).key_down(Keys.SHIFT).click(
                     tag).key_up(Keys.SHIFT).key_up(ctrl_key).perform()
             except WebDriverException:
-                print 'ignoring unknown selenium exception'
+                # print 'ignoring unknown selenium exception'
+                pass
 
             time.sleep(1)
             self.driver.switch_to_window(self.driver.window_handles[-1])
@@ -201,7 +202,9 @@ class MultiTabTest(BaseMultiTabTest):
             time.sleep(self.per_tab_pause)
 
             score_el = self.driver.find_element_by_id('result-number')
-            print('SCORE: {}'.format(score_el.get_attribute('innerHTML')))
+            score = score_el.get_attribute('innerHTML')
 
         time.sleep(self.settle_wait_time)
-        self.stats.print_stats()
+        # print('SCORE\t{}'.format(score))
+        self.stats.print_stats(score=score)
+        ActionChains(self.driver).key_down(ctrl_key).send_keys('q').key_up(ctrl_key).perform()

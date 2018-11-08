@@ -2,6 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+import os
 import mozinfo
 import psutil
 import StringIO
@@ -56,7 +57,7 @@ class ProcessStats:
         else:
             return " ".join(proc.cmdline())
 
-    def print_stats(self, verbose=False):
+    def print_stats(self, verbose=False, score=-1):
         """
         Prints out stats for each matched process and a sum of the RSS of the
         parent process and the USS of its children.
@@ -81,7 +82,8 @@ class ProcessStats:
             exe = cmdline if verbose else p.exe()
 
             if self.parent_filter(cmdline):
-                print "[%d] - %s\n  * RSS - %d\n    USS - %d" % (p.pid, exe, rss, uss)
+                print "%s\t%s\t%d\t%d\t%d\t%s" % (os.environ['TEST_NAME'], score, rss, uss, p.pid, exe)
+                # print "[%d] - %s\n  * RSS - %d\n    USS - %d" % (p.pid, exe, rss, uss)
                 parent_rss += rss
             else:
                 print "[%d] - %s\n    RSS - %d\n  * USS - %d" % (p.pid, exe, rss, uss)
@@ -95,7 +97,7 @@ class ProcessStats:
                 raise ProcessNotFoundException(
                     "No process matched the parent filter")
 
-        print "\nTotal: {:,} bytes\n".format(parent_rss + children_uss)
+        # print "\nTotal: {:,} bytes\n".format(parent_rss + children_uss)
 
 if __name__ == "__main__":
     # Simple adhoc test, not meant to really be used.

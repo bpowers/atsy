@@ -42,7 +42,7 @@ def test_browser(browser, stats, binary, urls,
         driver.quit()
     elif browser == "Firefox":
         for count in process_count:
-            print "FIREFOX WITH %d CONTENT PROCESSES" % count
+            # print "FIREFOX WITH %d CONTENT PROCESSES" % count
 
             options = webdriver.firefox.options.Options()
             # options.log.level = "trace"
