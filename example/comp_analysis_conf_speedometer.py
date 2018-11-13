@@ -78,7 +78,7 @@ SETUP = {
             #'binary': '/home/bpowers/src/firefox-57.0-nojemalloc/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
             # 'binary': '/home/bpowers/src/firefox-57.0/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
             'parent_filter': lambda x: 'firefox -content' not in x,
-            'path_filter': lambda x: '/opt/firefox-60.2.2' in x
+            'path_filter': lambda x: x.startswith('/opt/firefox-60.2.2')
         },
     },
 }
