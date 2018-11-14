@@ -1,3 +1,7 @@
+from os import path, getcwd
+
+WRAPPER_PATH = path.abspath(path.join(getcwd(), 'firefox-test-wrapper'))
+
 # This file provides a configuration for running the atsy tests.
 #
 # Format:
@@ -74,9 +78,7 @@ SETUP = {
         #     'path_filter': lambda x: 'obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin' in x
         # },
         'Firefox': {
-            'binary': '/home/bpowers/src/mesh/test/atsy/firefox-test-wrapper', #/opt/firefox-60.2.2-nojemalloc/bin/firefox',
-            #'binary': '/home/bpowers/src/firefox-57.0-nojemalloc/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
-            # 'binary': '/home/bpowers/src/firefox-57.0/obj-x86_64-pc-linux-gnu/dist/bin/firefox-bin',
+            'binary': WRAPPER_PATH,
             'parent_filter': lambda x: 'firefox -content' not in x,
             'path_filter': lambda x: x.startswith('/opt/firefox-') and 'mstat' not in x,
         },
